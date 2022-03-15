@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react"
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './components/Login';
 import * as Font from 'expo-font';
+import LottieView from 'lottie-react-native';
+
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
   useEffect(
@@ -19,7 +21,10 @@ export default function App() {
     , [fontLoaded])
   return (
     <View style={styles.container}>
-      <Login />
+      {
+        !fontLoaded ? <LottieView source={require('./assets/AppLoading.json')} autoPlay loop />
+          : <Login />
+      }
     </View>
   );
 }
@@ -27,5 +32,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#10141E",
   },
 });

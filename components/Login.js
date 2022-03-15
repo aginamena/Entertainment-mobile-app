@@ -28,9 +28,9 @@ export default function Login() {
                     <TouchableOpacity style={styles.btn}>
                         <Text style={styles.btnText}>Login to your account</Text>
                     </TouchableOpacity>
-                    <View>
-                        <Text>Don't have an account?</Text>
-                        <TouchableOpacity><Text>Signup</Text></TouchableOpacity>
+                    <View style={styles.signUpContainer}>
+                        <Text style={{ color: "white", fontFamily: "Outfit-Light", letterSpacing: 1.5 }}>Don't have an account?</Text>
+                        <TouchableOpacity><Text style={styles.signUpText}>Signup</Text></TouchableOpacity>
                     </View>
                 </View>
 
@@ -42,12 +42,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#10141E",
-        // backgroundColor:"w"
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-
-        // alignItems: "center"
     },
     loginContainer: {
         backgroundColor: "#161D2F",
@@ -66,7 +63,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         position: "absolute",
         top: 50
-
     },
     login: {
         fontFamily: "Outfit-Medium",
@@ -79,21 +75,15 @@ const styles = StyleSheet.create({
     inputFields: {
         height: 40,
         letterSpacing: 1.5,
-        // margin: 12,
         borderBottomWidth: 1,
         paddingLeft: 16,
         borderBottomColor: "#F2F2F2",
         fontFamily: 'Outfit-Light',
         fontSize: 15,
-        // paddingBottom: 10,
         textAlignVertical: "top",
-        // marginTop: 40,
         opacity: 0.5,
         color: "white",
         fontFamily: "Outfit-Light"
-    },
-    password: {
-        // marginTop:
     },
     btn: {
         height: 48,
@@ -111,5 +101,16 @@ const styles = StyleSheet.create({
         fontFamily: "Outfit-Light",
         fontSize: 15,
         letterSpacing: 1.5
+    },
+    signUpContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        marginTop: 24
+    },
+    signUpText: {
+        marginLeft: 9,
+        fontFamily: "Outfit-Light",
+        letterSpacing: 1.5,
+        color: "#FC4747"
     }
 })
