@@ -1,18 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import SvgComponent from "./SVgComponent";
-
-export default function Login({ navigation }) {
-
+function SignUp({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
                 <SvgComponent />
             </View>
 
-            <View style={styles.loginContainer}>
+            <View style={styles.SignUpContainer}>
                 <View style={{ width: "90%" }}>
-                    <Text style={styles.login}>Login</Text>
+                    <Text style={styles.SignUp}>Sign Up</Text>
                     <TextInput
                         style={styles.inputFields}
                         placeholder="Email address"
@@ -24,12 +22,17 @@ export default function Login({ navigation }) {
                         placeholder="Password"
                         placeholderTextColor="white"
                     />
+                    <TextInput
+                        style={[styles.inputFields, { marginTop: 24 }]}
+                        placeholder="Repeat Password"
+                        placeholderTextColor="white"
+                    />
                     <TouchableOpacity style={styles.btn}>
-                        <Text style={styles.btnText}>Login to your account</Text>
+                        <Text style={styles.btnText}>Create an account</Text>
                     </TouchableOpacity>
                     <View style={styles.signUpContainer}>
-                        <Text style={{ color: "white", fontFamily: "Outfit-Light", letterSpacing: 1.5 }}>Don't have an account?</Text>
-                        <TouchableOpacity onPress={() => navigation.push("SignUp")}><Text style={styles.signUpText}>Sign Up</Text></TouchableOpacity>
+                        <Text style={{ color: "white", fontFamily: "Outfit-Light", letterSpacing: 1.5 }}>Already have an account?</Text>
+                        <TouchableOpacity onPress={() => navigation.push("Login")}><Text style={styles.LoginText}>Login</Text></TouchableOpacity>
                     </View>
                 </View>
 
@@ -37,6 +40,8 @@ export default function Login({ navigation }) {
         </View>
     )
 }
+export default SignUp;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -45,9 +50,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         position: "relative",
     },
-    loginContainer: {
+    SignUpContainer: {
         backgroundColor: "#161D2F",
-        height: 365,
+        height: 420,
         width: "90%",
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
@@ -63,7 +68,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 50
     },
-    login: {
+    SignUp: {
         fontFamily: "Outfit-Medium",
         color: "white",
         fontSize: 32,
@@ -106,7 +111,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 24
     },
-    signUpText: {
+    LoginText: {
         marginLeft: 9,
         fontFamily: "Outfit-Light",
         letterSpacing: 1.5,
