@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import SvgComponent from "./SVgComponent";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 function SignUp({ navigation }) {
+    const [emailAddress, setEmailAddress] = useState("");
+    const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
+
+    async function SignUp() {
+        if (emailAddress.length > 0 && password.length > 0 && repeatPassword.length > 0) {
+            await AsyncStorage.setItem("userInput", JSON.stringify({ emailAddress, password, repeatPassword }))
+        } else alert("Invalid input")
+
+    }
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
@@ -15,19 +27,22 @@ function SignUp({ navigation }) {
                         style={styles.inputFields}
                         placeholder="Email address"
                         placeholderTextColor="white"
+                        onChangeText={inputAddress => setEmailAddress(inputAddress)}
 
                     />
                     <TextInput
                         style={[styles.inputFields, { marginTop: 24 }]}
                         placeholder="Password"
                         placeholderTextColor="white"
+                        onChangeText={inputPassword => setPassword(inputPassword)}
                     />
                     <TextInput
                         style={[styles.inputFields, { marginTop: 24 }]}
                         placeholder="Repeat Password"
                         placeholderTextColor="white"
+                        onChangeText={inputRepeatPassword => setRepeatPassword(inputRepeatPassword)}
                     />
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity style={styles.btn} onPress={() => SignUp()}>
                         <Text style={styles.btnText}>Create an account</Text>
                     </TouchableOpacity>
                     <View style={styles.signUpContainer}>

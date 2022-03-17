@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
 import SvgComponent from "./SVgComponent";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Login({ navigation }) {
+export default function Login(props, { navigation }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    console.log(props)
+    async function login() {
+        if (password.length > 0 && email.length > 0) {
+            const userDetails = await AsyncStorage.getItem('userInput');
+            if (userDetails == null) {
+                alert("Invalid input")
+            }
 
+        }
+    }
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
@@ -17,14 +29,15 @@ export default function Login({ navigation }) {
                         style={styles.inputFields}
                         placeholder="Email address"
                         placeholderTextColor="white"
-
+                        onChangeText={inputEmail => setEmail(inputEmail)}
                     />
                     <TextInput
                         style={[styles.inputFields, { marginTop: 24 }]}
                         placeholder="Password"
                         placeholderTextColor="white"
+                        onChangeText={inputPassword => setPassword(inputPassword)}
                     />
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity style={styles.btn} onPress={() => login()}>
                         <Text style={styles.btnText}>Login to your account</Text>
                     </TouchableOpacity>
                     <View style={styles.signUpContainer}>

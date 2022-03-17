@@ -7,9 +7,12 @@ import LottieView from 'lottie-react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignUp from "./components/SignUp";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Home from "./components/Home";
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const Stack = createNativeStackNavigator();
   useEffect(
     () => {
@@ -27,19 +30,22 @@ export default function App() {
     <View style={styles.container}>
       {
         !fontLoaded ? <LottieView source={require('./assets/AppLoading.json')} autoPlay loop />
-          : <NavigationContainer>
-            <Stack.Navigator
-              screenOptions={{
-                headerShown: false
-              }}>
-              <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="SignUp" component={SignUp} />
+          :
+          <NavigationContainer>
+            <Stack.Navigator>
+              {
+                !isLoggedIn ?
+                  <>
+                    <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} isLoggedIn={() => setIsLoggedIn(true)} />
+                    <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} isLoggedIn={() => setIsLoggedIn(true)} />
+                  </> :
+                  <>
+                    <Stack.Screen name="Home" component={Home} />
+                  </>
+              }
             </Stack.Navigator>
+
           </NavigationContainer>
-
-
-
-        // <Login />
       }
     </View>
   );
