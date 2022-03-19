@@ -3,14 +3,34 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-nativ
 import SvgComponent from "./SVgComponent";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function SignUp({ navigation }) {
+function SignUp({ navigation, loginUser }) {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
-    async function SignUp() {
+    async function SignUserUp() {
         if (emailAddress.length > 0 && password.length > 0 && repeatPassword.length > 0) {
-            await AsyncStorage.setItem("userInput", JSON.stringify({ emailAddress, password, repeatPassword }))
+            const userDetail = await AsyncStorage.getItem("userInput")
+            if (userDetail === null) {
+                // user doesn't exist and we have to register the user
+                await AsyncStorage.setItem("userInput", JSON.stringify({ emailAddress, password, repeatPassword }))
+                loginUser();
+                navigation.push("Home");
+
+            } else {
+                // user already has an account. We have to make sure the user enters the correct
+                // signin details
+                const parsedUserDetail = JSON.parse(userDetail);
+                if (emailAddress === parsedUserDetail.emailAddress && password === parsedUserDetail.password) {
+                    loginUser();
+                    navigation.push("Home");
+
+                } else {
+                    alert("Invalid input")
+                }
+
+            }
+
         } else alert("Invalid input")
 
     }
@@ -42,7 +62,7 @@ function SignUp({ navigation }) {
                         placeholderTextColor="white"
                         onChangeText={inputRepeatPassword => setRepeatPassword(inputRepeatPassword)}
                     />
-                    <TouchableOpacity style={styles.btn} onPress={() => SignUp()}>
+                    <TouchableOpacity style={styles.btn} onPress={() => SignUserUp()}>
                         <Text style={styles.btnText}>Create an account</Text>
                     </TouchableOpacity>
                     <View style={styles.signUpContainer}>

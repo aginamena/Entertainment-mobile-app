@@ -4,7 +4,7 @@ import { Text, StyleSheet, View } from "react-native"
 export default function Home() {
     return (
         <View>
-            <Text>This is from home component</Text>
+            <Text>This is from home component asdfasdf</Text>
         </View>
     )
 }

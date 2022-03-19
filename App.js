@@ -36,8 +36,14 @@ export default function App() {
               {
                 !isLoggedIn ?
                   <>
-                    <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} isLoggedIn={() => setIsLoggedIn(true)} />
-                    <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} isLoggedIn={() => setIsLoggedIn(true)} />
+                    <Stack.Screen name="Login" options={{ headerShown: true }} >
+                      {(props) => <Login {...props} loginUser={() => setIsLoggedIn(true)} />}
+                    </Stack.Screen>
+                    {/* <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} isLoggedIn={() => setIsLoggedIn(true)} /> */}
+                    <Stack.Screen name="SignUp" options={{ headerShown: true }}>
+                      {(props) => <SignUp {...props} loginUser={() => setIsLoggedIn(true)} />}
+                    </Stack.Screen>
+                    {/* <Stack.Screen  component={SignUp}  isLoggedIn={() => setIsLoggedIn(true)} /> */}
                   </> :
                   <>
                     <Stack.Screen name="Home" component={Home} />
