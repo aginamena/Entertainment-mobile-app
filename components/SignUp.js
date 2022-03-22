@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import SvgComponent from "./SVgComponent";
+import { Logo } from './SVgComponent'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function SignUp({ navigation, loginUser }) {
@@ -13,21 +13,26 @@ function SignUp({ navigation, loginUser }) {
             const userDetail = await AsyncStorage.getItem("userInput")
             if (userDetail === null) {
                 // user doesn't exist and we have to register the user
-                await AsyncStorage.setItem("userInput", JSON.stringify({ emailAddress, password, repeatPassword }))
-                loginUser();
-                navigation.push("Home");
+                if (password === repeatPassword) {
+                    await AsyncStorage.setItem("userInput", JSON.stringify({ emailAddress, password, repeatPassword }))
+                    loginUser();
+                    navigation.push("Home");
+                } else {
+                    alert("Passwords don't match")
+                }
 
             } else {
                 // user already has an account. We have to make sure the user enters the correct
                 // signin details
-                const parsedUserDetail = JSON.parse(userDetail);
-                if (emailAddress === parsedUserDetail.emailAddress && password === parsedUserDetail.password) {
-                    loginUser();
-                    navigation.push("Home");
+                alert("You alreay have an account. You have to login")
+                // const parsedUserDetail = JSON.parse(userDetail);
+                // if (emailAddress === parsedUserDetail.emailAddress && password === parsedUserDetail.password) {
+                //     loginUser();
+                //     navigation.push("Home");
 
-                } else {
-                    alert("Invalid input")
-                }
+                // } else {
+                //     alert("Invalid input")
+                // }
 
             }
 
@@ -37,7 +42,7 @@ function SignUp({ navigation, loginUser }) {
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
-                <SvgComponent />
+                <Logo />
             </View>
 
             <View style={styles.SignUpContainer}>

@@ -7,13 +7,16 @@ import LottieView from 'lottie-react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignUp from "./components/SignUp";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from "./components/Home";
+import CustomTab from "./components/CustomTab";
+
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
   useEffect(
     () => {
       const getFont = async () => {
@@ -32,25 +35,20 @@ export default function App() {
         !fontLoaded ? <LottieView source={require('./assets/AppLoading.json')} autoPlay loop />
           :
           <NavigationContainer>
-            <Stack.Navigator>
-              {
-                !isLoggedIn ?
-                  <>
-                    <Stack.Screen name="Login" options={{ headerShown: true }} >
-                      {(props) => <Login {...props} loginUser={() => setIsLoggedIn(true)} />}
-                    </Stack.Screen>
-                    {/* <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} isLoggedIn={() => setIsLoggedIn(true)} /> */}
-                    <Stack.Screen name="SignUp" options={{ headerShown: true }}>
-                      {(props) => <SignUp {...props} loginUser={() => setIsLoggedIn(true)} />}
-                    </Stack.Screen>
-                    {/* <Stack.Screen  component={SignUp}  isLoggedIn={() => setIsLoggedIn(true)} /> */}
-                  </> :
-                  <>
-                    <Stack.Screen name="Home" component={Home} />
-                  </>
-              }
-            </Stack.Navigator>
-
+            {
+              isLoggedIn ?
+                <Stack.Navigator>
+                  <Stack.Screen name="Login" options={{ headerShown: false }} >
+                    {(props) => <Login {...props} loginUser={() => setIsLoggedIn(true)} />}
+                  </Stack.Screen>
+                  <Stack.Screen name="SignUp" options={{ headerShown: false }}>
+                    {(props) => <SignUp {...props} loginUser={() => setIsLoggedIn(true)} />}
+                  </Stack.Screen>
+                </Stack.Navigator> :
+                <Tab.Navigator tabBar={props => <CustomTab {...props} />}>
+                  <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
+                </Tab.Navigator>
+            }
           </NavigationContainer>
       }
     </View>

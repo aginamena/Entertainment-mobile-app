@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
-import SvgComponent from "./SVgComponent";
+import { Logo } from './SVgComponent'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Login({ navigation, loginUser }) {
@@ -33,7 +33,7 @@ export default function Login({ navigation, loginUser }) {
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
-                <SvgComponent />
+                <Logo />
             </View>
 
             <View style={styles.loginContainer}>
