@@ -2,13 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
 
-export default function TrendingMovies({ movie }) {
+export default function RecommendedMovies({ movie }) {
 
     return (
         <View style={{ paddingRight: 15 }}>
             <Text style={{ color: "white" }}>Movie goes here</Text>
             <Image
-                source={movie.thumbnail.trending.small}
+                source={movie.thumbnail.regular.small}
 
                 style={styles.image}
             />
@@ -18,7 +18,7 @@ export default function TrendingMovies({ movie }) {
 
 const styles = StyleSheet.create({
     image: {
-        width: 240,
+        width: 164,
         height: 140,
         resizeMode: "contain",
         borderTopLeftRadius: 10,

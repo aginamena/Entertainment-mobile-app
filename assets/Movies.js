@@ -98,7 +98,7 @@ export const movies = [
         "title": "The Great Lands",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/the-great-lands/regular/small.jpg",
+                "small": require("../assets/thumbnails/the-great-lands/regular/small.jpg"),
                 "medium": "./assets/thumbnails/the-great-lands/regular/medium.jpg",
                 "large": "./assets/thumbnails/the-great-lands/regular/large.jpg"
             }
@@ -113,7 +113,7 @@ export const movies = [
         "title": "The Diary",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/the-diary/regular/small.jpg",
+                "small": require("../assets/thumbnails/the-diary/regular/small.jpg"),
                 "medium": "./assets/thumbnails/the-diary/regular/medium.jpg",
                 "large": "./assets/thumbnails/the-diary/regular/large.jpg"
             }
@@ -128,7 +128,7 @@ export const movies = [
         "title": "Earth’s Untouched",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/earths-untouched/regular/small.jpg",
+                "small": require("../assets/thumbnails/earths-untouched/regular/small.jpg"),
                 "medium": "./assets/thumbnails/earths-untouched/regular/medium.jpg",
                 "large": "./assets/thumbnails/earths-untouched/regular/large.jpg"
             }
@@ -143,7 +143,7 @@ export const movies = [
         "title": "No Land Beyond",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/no-land-beyond/regular/small.jpg",
+                "small": require("../assets/thumbnails/no-land-beyond/regular/small.jpg"),
                 "medium": "./assets/thumbnails/no-land-beyond/regular/medium.jpg",
                 "large": "./assets/thumbnails/no-land-beyond/regular/large.jpg"
             }
@@ -158,7 +158,7 @@ export const movies = [
         "title": "During the Hunt",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/during-the-hunt/regular/small.jpg",
+                "small": require("../assets/thumbnails/during-the-hunt/regular/small.jpg"),
                 "medium": "./assets/thumbnails/during-the-hunt/regular/medium.jpg",
                 "large": "./assets/thumbnails/during-the-hunt/regular/large.jpg"
             }
@@ -173,7 +173,7 @@ export const movies = [
         "title": "Autosport the Series",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/autosport-the-series/regular/small.jpg",
+                "small": require("../assets/thumbnails/autosport-the-series/regular/small.jpg"),
                 "medium": "./assets/thumbnails/autosport-the-series/regular/medium.jpg",
                 "large": "./assets/thumbnails/autosport-the-series/regular/large.jpg"
             }
@@ -188,7 +188,7 @@ export const movies = [
         "title": "Same Answer II",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/same-answer-2/regular/small.jpg",
+                "small": require("../assets/thumbnails/same-answer-2/regular/small.jpg"),
                 "medium": "./assets/thumbnails/same-answer-2/regular/medium.jpg",
                 "large": "./assets/thumbnails/same-answer-2/regular/large.jpg"
             }
@@ -203,7 +203,7 @@ export const movies = [
         "title": "Below Echo",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/below-echo/regular/small.jpg",
+                "small": require("../assets/thumbnails/below-echo/regular/small.jpg"),
                 "medium": "./assets/thumbnails/below-echo/regular/medium.jpg",
                 "large": "./assets/thumbnails/below-echo/regular/large.jpg"
             }
@@ -218,7 +218,7 @@ export const movies = [
         "title": "The Rockies",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/the-rockies/regular/small.jpg",
+                "small": require("../assets/thumbnails/the-rockies/regular/small.jpg"),
                 "medium": "./assets/thumbnails/the-rockies/regular/medium.jpg",
                 "large": "./assets/thumbnails/the-rockies/regular/large.jpg"
             }
@@ -233,7 +233,7 @@ export const movies = [
         "title": "Relentless",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/relentless/regular/small.jpg",
+                "small": require("../assets/thumbnails/relentless/regular/small.jpg"),
                 "medium": "./assets/thumbnails/relentless/regular/medium.jpg",
                 "large": "./assets/thumbnails/relentless/regular/large.jpg"
             }
@@ -248,7 +248,7 @@ export const movies = [
         "title": "Community of Ours",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/community-of-ours/regular/small.jpg",
+                "small": require("../assets/thumbnails/community-of-ours/regular/small.jpg"),
                 "medium": "./assets/thumbnails/community-of-ours/regular/medium.jpg",
                 "large": "./assets/thumbnails/community-of-ours/regular/large.jpg"
             }
@@ -263,7 +263,7 @@ export const movies = [
         "title": "Van Life",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/van-life/regular/small.jpg",
+                "small": require("../assets/thumbnails/van-life/regular/small.jpg"),
                 "medium": "./assets/thumbnails/van-life/regular/medium.jpg",
                 "large": "./assets/thumbnails/van-life/regular/large.jpg"
             }
@@ -278,7 +278,7 @@ export const movies = [
         "title": "The Heiress",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/the-heiress/regular/small.jpg",
+                "small": require("../assets/thumbnails/the-heiress/regular/small.jpg"),
                 "medium": "./assets/thumbnails/the-heiress/regular/medium.jpg",
                 "large": "./assets/thumbnails/the-heiress/regular/large.jpg"
             }
@@ -293,7 +293,7 @@ export const movies = [
         "title": "Off the Track",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/off-the-track/regular/small.jpg",
+                "small": require("../assets/thumbnails/off-the-track/regular/small.jpg"),
                 "medium": "./assets/thumbnails/off-the-track/regular/medium.jpg",
                 "large": "./assets/thumbnails/off-the-track/regular/large.jpg"
             }
@@ -308,7 +308,7 @@ export const movies = [
         "title": "Whispering Hill",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/whispering-hill/regular/small.jpg",
+                "small": require("../assets/thumbnails/whispering-hill/regular/small.jpg"),
                 "medium": "./assets/thumbnails/whispering-hill/regular/medium.jpg",
                 "large": "./assets/thumbnails/whispering-hill/regular/large.jpg"
             }
@@ -323,7 +323,7 @@ export const movies = [
         "title": "112",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/112/regular/small.jpg",
+                "small": require("../assets/thumbnails/112/regular/small.jpg"),
                 "medium": "./assets/thumbnails/112/regular/medium.jpg",
                 "large": "./assets/thumbnails/112/regular/large.jpg"
             }
@@ -338,7 +338,7 @@ export const movies = [
         "title": "Lone Heart",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/lone-heart/regular/small.jpg",
+                "small": require("../assets/thumbnails/lone-heart/regular/small.jpg"),
                 "medium": "./assets/thumbnails/lone-heart/regular/medium.jpg",
                 "large": "./assets/thumbnails/lone-heart/regular/large.jpg"
             }
@@ -353,7 +353,7 @@ export const movies = [
         "title": "Production Line",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/production-line/regular/small.jpg",
+                "small": require("../assets/thumbnails/production-line/regular/small.jpg"),
                 "medium": "./assets/thumbnails/production-line/regular/medium.jpg",
                 "large": "./assets/thumbnails/production-line/regular/large.jpg"
             }
@@ -368,7 +368,7 @@ export const movies = [
         "title": "Dogs",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/dogs/regular/small.jpg",
+                "small": require("../assets/thumbnails/dogs/regular/small.jpg"),
                 "medium": "./assets/thumbnails/dogs/regular/medium.jpg",
                 "large": "./assets/thumbnails/dogs/regular/large.jpg"
             }
@@ -383,7 +383,7 @@ export const movies = [
         "title": "Asia in 24 Days",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/asia-in-24-days/regular/small.jpg",
+                "small": require("../assets/thumbnails/asia-in-24-days/regular/small.jpg"),
                 "medium": "./assets/thumbnails/asia-in-24-days/regular/medium.jpg",
                 "large": "./assets/thumbnails/asia-in-24-days/regular/large.jpg"
             }
@@ -398,7 +398,7 @@ export const movies = [
         "title": "The Tasty Tour",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/the-tasty-tour/regular/small.jpg",
+                "small": require("../assets/thumbnails/the-tasty-tour/regular/small.jpg"),
                 "medium": "./assets/thumbnails/the-tasty-tour/regular/medium.jpg",
                 "large": "./assets/thumbnails/the-tasty-tour/regular/large.jpg"
             }
@@ -413,7 +413,7 @@ export const movies = [
         "title": "Darker",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/darker/regular/small.jpg",
+                "small": require("../assets/thumbnails/darker/regular/small.jpg"),
                 "medium": "./assets/thumbnails/darker/regular/medium.jpg",
                 "large": "./assets/thumbnails/darker/regular/large.jpg"
             }
@@ -428,7 +428,7 @@ export const movies = [
         "title": "Unresolved Cases",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/unresolved-cases/regular/small.jpg",
+                "small": require("../assets/thumbnails/unresolved-cases/regular/small.jpg"),
                 "medium": "./assets/thumbnails/unresolved-cases/regular/medium.jpg",
                 "large": "./assets/thumbnails/unresolved-cases/regular/large.jpg"
             }
@@ -443,7 +443,7 @@ export const movies = [
         "title": "Mission: Saturn",
         "thumbnail": {
             "regular": {
-                "small": "./assets/thumbnails/mission-saturn/regular/small.jpg",
+                "small": require("../assets/thumbnails/mission-saturn/regular/small.jpg"),
                 "medium": "./assets/thumbnails/mission-saturn/regular/medium.jpg",
                 "large": "./assets/thumbnails/mission-saturn/regular/large.jpg"
             }
