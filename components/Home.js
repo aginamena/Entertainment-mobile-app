@@ -31,16 +31,13 @@ export default function Home() {
                         numColumns={trendingMovies}
                     />
                 </ScrollView>
-                <ScrollView >
+                <ScrollView>
                     <Text style={styles.heading}>Recommended for you</Text>
-
-                    <FlatList
-                        data={movies.filter(movies => !(movies.isTrending))}
-                        renderItem={({ item }) => <RecommendedMovies movie={item} />}
-                        keyExtractor={(item, index) => index.toString()}
-                        numColumns={recommendedMovies}
-
-                    />
+                    <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                        {
+                            movies.filter(movies => !(movies.isTrending)).map((item, index) => <RecommendedMovies movie={item} key={index} />)
+                        }
+                    </View>
                 </ScrollView>
             </ScrollView>
         </View>
@@ -55,7 +52,6 @@ const styles = StyleSheet.create({
     textInput: {
         width: "100%",
         marginLeft: 10,
-        color: "white",
         fontSize: 16,
         fontFamily: "Outfit-Light",
         letterSpacing: 1.5,
