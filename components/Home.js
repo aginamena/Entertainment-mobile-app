@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Text, StyleSheet, View, TextInput, FlatList, Dimensions, ScrollView } from "react-native"
 
 import { movies } from "../assets/Movies";
@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <View style={styles.container}>
 
-            <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 20 }}>
+            <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 30 }}>
                 <SearchSvg />
                 <TextInput
                     style={styles.textInput}
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#10141E",
+        paddingBottom: 20,
     },
     textInput: {
         width: "100%",

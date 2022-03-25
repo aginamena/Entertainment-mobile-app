@@ -17,7 +17,7 @@ export default function CustomTab() {
                 </View>
 
                 <Image
-                    style={{ width: 50, height: 50 }}
+                    style={{ width: 50, height: 30 }}
                     source={{
                         uri: "https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
                     }}
@@ -34,12 +34,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#161D2F",
         paddingBottom: 50,
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
     },
     innerTab: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        height: 56
     },
     innerTab2: {
         flexDirection: "row",

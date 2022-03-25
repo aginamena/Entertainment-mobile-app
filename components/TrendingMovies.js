@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         fontFamily: "Outfit-Light",
         letterSpacing: 1.5,
         fontSize: 15,
-        color: 'white'
+        color: 'white',
+        fontWeight: "bold"
     }
 })

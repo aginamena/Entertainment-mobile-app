@@ -22,18 +22,7 @@ function SignUp({ navigation, loginUser }) {
                 }
 
             } else {
-                // user already has an account. We have to make sure the user enters the correct
-                // signin details
                 alert("You alreay have an account. You have to login")
-                // const parsedUserDetail = JSON.parse(userDetail);
-                // if (emailAddress === parsedUserDetail.emailAddress && password === parsedUserDetail.password) {
-                //     loginUser();
-                //     navigation.push("Home");
-
-                // } else {
-                //     alert("Invalid input")
-                // }
-
             }
 
         } else alert("Invalid input")

@@ -36,16 +36,7 @@ const styles = StyleSheet.create({
         paddingRight: 15,
         width: "50%",
         position: "relative",
-        marginTop: 16
-    },
-    image: {
-        width: "100%",
-        height: 140,
-        resizeMode: "contain",
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
+        marginTop: 16,
     },
     images: {
         width: 240,
@@ -76,5 +67,6 @@ const styles = StyleSheet.create({
         letterSpacing: 1.5,
         fontSize: 14,
         color: 'white',
+        fontWeight: "bold"
     }
 })
