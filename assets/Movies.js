@@ -7,7 +7,7 @@ export const movies = [
                 "large": "./assets/thumbnails/beyond-earth/trending/large.jpg"
             },
             "regular": {
-                "small": "./assets/thumbnails/beyond-earth/regular/small.jpg",
+                "small": require("../assets/thumbnails/beyond-earth/regular/small.jpg"),
                 "medium": "./assets/thumbnails/beyond-earth/regular/medium.jpg",
                 "large": "./assets/thumbnails/beyond-earth/regular/large.jpg"
             }
@@ -26,7 +26,7 @@ export const movies = [
                 "large": "./assets/thumbnails/bottom-gear/trending/large.jpg"
             },
             "regular": {
-                "small": "./assets/thumbnails/bottom-gear/regular/small.jpg",
+                "small": require("../assets/thumbnails/bottom-gear/regular/small.jpg"),
                 "medium": "./assets/thumbnails/bottom-gear/regular/medium.jpg",
                 "large": "./assets/thumbnails/bottom-gear/regular/large.jpg"
             }
@@ -45,7 +45,7 @@ export const movies = [
                 "large": "./assets/thumbnails/undiscovered-cities/trending/large.jpg"
             },
             "regular": {
-                "small": "./assets/thumbnails/undiscovered-cities/regular/small.jpg",
+                "small": require("../assets/thumbnails/undiscovered-cities/regular/small.jpg"),
                 "medium": "./assets/thumbnails/undiscovered-cities/regular/medium.jpg",
                 "large": "./assets/thumbnails/undiscovered-cities/regular/large.jpg"
             }
@@ -64,7 +64,7 @@ export const movies = [
                 "large": "./assets/thumbnails/1998/trending/large.jpg"
             },
             "regular": {
-                "small": "./assets/thumbnails/1998/regular/small.jpg",
+                "small": require("../assets/thumbnails/1998/regular/small.jpg"),
                 "medium": "./assets/thumbnails/1998/regular/medium.jpg",
                 "large": "./assets/thumbnails/1998/regular/large.jpg"
             }
@@ -83,7 +83,7 @@ export const movies = [
                 "large": "./assets/thumbnails/dark-side-of-the-moon/trending/large.jpg"
             },
             "regular": {
-                "small": "./assets/thumbnails/dark-side-of-the-moon/regular/small.jpg",
+                "small": require("../assets/thumbnails/dark-side-of-the-moon/regular/small.jpg"),
                 "medium": "./assets/thumbnails/dark-side-of-the-moon/regular/medium.jpg",
                 "large": "./assets/thumbnails/dark-side-of-the-moon/regular/large.jpg"
             }
