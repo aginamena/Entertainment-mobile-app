@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from "react"
-import { StyleSheet, View } from 'react-native';
+import React, { useEffect, useState, useRef } from "react"
+import { StyleSheet, View, Text, AppState } from 'react-native';
 // import Login from './components/Login';
 import * as Font from 'expo-font';
 import LottieView from 'lottie-react-native';
@@ -21,6 +21,8 @@ import DrawerNavigator from "./components/DrawerNavigator";
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
+  // const appState = useRef(AppState.currentState);
+  // const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   useEffect(
     () => {
@@ -30,10 +32,20 @@ export default function App() {
           "Outfit-Light": require("./assets/fonts/Outfit-Light.ttf")
         });
         setFontLoaded(true);
+        // const appStateListener = AppState.addEventListener(
+        //   'change',
+        //   nextAppState => {
+        //     if (nextAppState === 'background')
+        //       console.log("you have gone to background")
+        //     else console.log("you are still in the app")
+        //     // console.log('Next AppState is: ', nextAppState);
+        //     setAppStateVisible(nextAppState);
+        //   },
+        // );
       }
       getFont();
     }
-    , [fontLoaded])
+    , [])
 
   return (
 
@@ -44,6 +56,9 @@ export default function App() {
       <View style={styles.container}>
         <LottieView source={require('./assets/AppLoading.json')} autoPlay loop />
       </View>
+    // <View style={styles.container}>
+    //   <Text style={{ color: "white", marginTop: 50 }}>Current state is: {appStateVisible}</Text>
+    // </View>
 
   );
 }

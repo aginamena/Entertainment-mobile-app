@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Logo } from "./SVgComponent";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 export default function UserProfile() {
-
+    const [emailAddress, setEmailAddress] = useState(null);
+    useEffect(
+        () => {
+            AsyncStorage.getItem("userInput")
+                .then(data => {
+                    const parsedData = JSON.parse(data);
+                    setEmailAddress(parsedData.emailAddress)
+                })
+        }
+        , [])
     return (
         <View style={styles.container}>
             <Logo />
-            <Text style={styles.userName}>Users name</Text>
-            <Text style={styles.userEmail}>Users email</Text>
+            {emailAddress && <Text style={styles.userEmail}>{emailAddress}</Text>}
             <TouchableOpacity style={styles.signOutBtn}><Text style={styles.btnText}>Logout</Text></TouchableOpacity>
         </View>
     )
@@ -28,13 +37,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10
-    },
-    userName: {
-        fontFamily: "Outfit-Medium",
-        fontSize: 20,
-        letterSpacing: 1.5,
-        color: "white",
-        marginTop: 20,
     },
     userEmail: {
         fontFamily: "Outfit-Medium",
