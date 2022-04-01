@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, StyleSheet, View, TextInput, FlatList, Dimensions, ScrollView } from "react-native"
 
 import { movies } from "../assets/Movies";
 import RecommendedMovies from "./RecommendedMovies";
+import SearchMovies from "./SearchMovies";
 
 import { SearchSvg } from "./SVgComponent";
 import TrendingMovies from "./TrendingMovies";
 
 export default function Home() {
+    const [searchText, setSearchText] = useState("")
     const trendingMovies = 5;
     const recommendedMovies = 2;
     return (
@@ -19,27 +21,38 @@ export default function Home() {
                     style={styles.textInput}
                     placeholder="Search for movies or TV series"
                     placeholderTextColor="gray"
+                    onChangeText={input => setSearchText(input)}
                 />
             </View>
-            <ScrollView style={{ marginLeft: 15 }}>
-                <Text style={styles.heading}>Trending</Text>
-                <ScrollView horizontal={true}>
-                    <FlatList
-                        data={movies.filter(movies => movies.isTrending)}
-                        renderItem={({ item }) => <TrendingMovies movie={item} />}
-                        keyExtractor={(item, index) => index.toString()}
-                        numColumns={trendingMovies}
-                    />
-                </ScrollView>
-                <ScrollView>
-                    <Text style={styles.heading}>Recommended for you</Text>
-                    <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-                        {
-                            movies.filter(movies => !(movies.isTrending)).map((item, index) => <RecommendedMovies movie={item} key={index} />)
-                        }
-                    </View>
-                </ScrollView>
-            </ScrollView>
+            {
+                searchText ? <View style={{ marginLeft: 15 }}><SearchMovies keyword={searchText} list={movies} /></View> :
+                    <ScrollView style={{ marginLeft: 15 }}>
+
+                        <Text style={styles.heading}>Trending</Text>
+                        <ScrollView horizontal={true}>
+                            <FlatList
+                                data={movies.filter(movies => movies.isTrending)}
+                                renderItem={({ item }) => <TrendingMovies movie={item} />}
+                                keyExtractor={(item, index) => index.toString()}
+                                numColumns={trendingMovies}
+                            />
+                        </ScrollView>
+                        <ScrollView>
+                            <Text style={styles.heading}>Recommended for you</Text>
+                            <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+                                {
+                                    movies.filter(movies => !(movies.isTrending)).map((item, index) => <RecommendedMovies movie={item} key={index} />)
+                                }
+                            </View>
+                        </ScrollView>
+
+
+
+                    </ScrollView>
+
+            }
+
+
         </View>
     )
 }
