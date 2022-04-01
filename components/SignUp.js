@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Logo } from './SVgComponent'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -7,8 +7,10 @@ function SignUp({ navigation, loginUser }) {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
+    const [loading, setLoading] = useState(false)
 
     async function SignUserUp() {
+        setLoading(true);
         if (emailAddress.length > 0 && password.length > 0 && repeatPassword.length > 0) {
             const userDetail = await AsyncStorage.getItem("userInput")
             if (userDetail === null) {
@@ -16,16 +18,20 @@ function SignUp({ navigation, loginUser }) {
                 if (password === repeatPassword) {
                     await AsyncStorage.setItem("userInput", JSON.stringify({ emailAddress, password, repeatPassword }))
                     loginUser();
-                    navigation.push("Home");
                 } else {
                     alert("Passwords don't match")
+                    setLoading(false);
                 }
 
             } else {
                 alert("You alreay have an account. You have to login")
+                setLoading(false);
             }
 
-        } else alert("Invalid input")
+        } else {
+            alert("Invalid input");
+            setLoading(false);
+        }
 
     }
     return (
@@ -56,9 +62,13 @@ function SignUp({ navigation, loginUser }) {
                         placeholderTextColor="white"
                         onChangeText={inputRepeatPassword => setRepeatPassword(inputRepeatPassword)}
                     />
-                    <TouchableOpacity style={styles.btn} onPress={() => SignUserUp()}>
-                        <Text style={styles.btnText}>Create an account</Text>
-                    </TouchableOpacity>
+                    {
+                        loading ? <ActivityIndicator color={"#fff"} size="large" /> :
+                            <TouchableOpacity style={styles.btn} onPress={() => SignUserUp()}>
+                                <Text style={styles.btnText}>Create an account</Text>
+                            </TouchableOpacity>
+                    }
+
                     <View style={styles.signUpContainer}>
                         <Text style={{ color: "white", fontFamily: "Outfit-Light", letterSpacing: 1.5 }}>Already have an account?</Text>
                         <TouchableOpacity onPress={() => navigation.push("Login")}><Text style={styles.LoginText}>Login</Text></TouchableOpacity>

@@ -26,24 +26,30 @@ export default function App() {
 
   useEffect(
     () => {
-      const getFont = async () => {
-        await Font.loadAsync({
-          "Outfit-Medium": require("./assets/fonts/Outfit-Medium.ttf"),
-          "Outfit-Light": require("./assets/fonts/Outfit-Light.ttf")
-        });
-        setFontLoaded(true);
-        // const appStateListener = AppState.addEventListener(
-        //   'change',
-        //   nextAppState => {
-        //     if (nextAppState === 'background')
-        //       console.log("you have gone to background")
-        //     else console.log("you are still in the app")
-        //     // console.log('Next AppState is: ', nextAppState);
-        //     setAppStateVisible(nextAppState);
-        //   },
-        // );
-      }
-      getFont();
+      // const getFont = async () => {
+      //   await Font.loadAsync({
+      //     "Outfit-Medium": require("./assets/fonts/Outfit-Medium.ttf"),
+      //     "Outfit-Light": require("./assets/fonts/Outfit-Light.ttf")
+      //   });
+
+      //   setFontLoaded(true);
+      //   // const appStateListener = AppState.addEventListener(
+      //   //   'change',
+      //   //   nextAppState => {
+      //   //     if (nextAppState === 'background')
+      //   //       console.log("you have gone to background")
+      //   //     else console.log("you are still in the app")
+      //   //     // console.log('Next AppState is: ', nextAppState);
+      //   //     setAppStateVisible(nextAppState);
+      //   //   },
+      //   // );
+      // }
+      // getFont();
+      Font.loadAsync({
+        "Outfit-Medium": require("./assets/fonts/Outfit-Medium.ttf"),
+        "Outfit-Light": require("./assets/fonts/Outfit-Light.ttf")
+      })
+        .then(() => setFontLoaded(true))
     }
     , [])
 

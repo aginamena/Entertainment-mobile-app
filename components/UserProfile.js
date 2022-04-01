@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Logo } from "./SVgComponent";
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-export default function UserProfile() {
+export default function UserProfile({ logout }) {
     const [emailAddress, setEmailAddress] = useState(null);
     useEffect(
         () => {
@@ -18,7 +18,9 @@ export default function UserProfile() {
         <View style={styles.container}>
             <Logo />
             {emailAddress && <Text style={styles.userEmail}>{emailAddress}</Text>}
-            <TouchableOpacity style={styles.signOutBtn}><Text style={styles.btnText}>Logout</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.signOutBtn} onPress={() => logout()}>
+                <Text style={styles.btnText}>Logout</Text>
+            </TouchableOpacity>
         </View>
     )
 }
