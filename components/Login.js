@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, Modal } from "react-native";
 import { Logo } from './SVgComponent'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function Login({ navigation, loginUser }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false)
-    // console.log(loginUser)
     async function login() {
         setLoading(true)
         if (password.length > 0 && email.length > 0) {
@@ -18,9 +18,7 @@ export default function Login({ navigation, loginUser }) {
                 alert("Invalid input")
                 setLoading(false)
             } else {
-                // user enter correct email address and password
                 loginUser()
-                // navigation.push("Home");
             }
 
         } else {
@@ -28,12 +26,6 @@ export default function Login({ navigation, loginUser }) {
             setLoading(false)
         }
     }
-    // AsyncStorage.getItem('userInput')
-    //     .then(data => JSON.parse(data))
-    //     .then(data => console.log(data));
-    // AsyncStorage.removeItem("userInput")
-    //     .then(info => console.log(info))
-    // console.log(userDetails);
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>

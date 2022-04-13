@@ -29,14 +29,6 @@ export default function DrawerNavigator() {
         }
         , [])
 
-
-    // AsyncStorage.getItem('userInput')
-    //     .then(data => JSON.parse(data))
-    //     .then(data => console.log(data));
-
-    // AsyncStorage.removeItem("userInput")
-    //     .then(info => console.log(info))
-
     return (
 
         !(isLoggedIn) ? <LoginStack isActive={() => setIsLoggedIn(true)} /> :
